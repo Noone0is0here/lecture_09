@@ -18,9 +18,34 @@ def read_data(file_name, field):
         return data[field]
 
 
+def linear_search(unoordered_numbers, searched_number):
+    positions = []
+    count = 0
+    for position, number in enumerate(unoordered_numbers):
+        if number == searched_number:
+            count += 1
+            positions.append(position)
+
+    output = dict()
+    output['positions'] = positions
+    output['count'] = count
+    return output
+
+
+"""
+number_of_number = 0
+for value in file_name.values():
+    if value == number:
+        number_of_number += 1
+
+return  dict(zip(positions, number_of_number))
+"""
+
+
 def main():
-    unorsered_nums = read_data("sequential.json", "unordered_number" )
-    print(unorsered_nums)
+    unorsered_nums = read_data("sequential.json", "unordered_numbers" )
+    lo = linear_search(unorsered_nums, 9)
+    print(lo)
 
 
 if __name__ == '__main__':
