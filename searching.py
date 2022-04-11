@@ -30,8 +30,6 @@ def linear_search(unoordered_numbers, searched_number):
     output['positions'] = positions
     output['count'] = count
     return output
-
-
 """
 number_of_number = 0
 for value in file_name.values():
@@ -40,13 +38,26 @@ for value in file_name.values():
 
 return  dict(zip(positions, number_of_number))
 """
+def pattern_search(dna_sequence, vzor):
+    """def split(ATA):
+        return [char for char in ATA]
+        """
+    positions = []
+    for i, pismeno in enumerate(dna_sequence):
+        if vzor == dna_sequence[i:i+len(vzor)]:
+            positions.append(i)
+    return set(positions)
+
+
 
 
 def main():
     unorsered_nums = read_data("sequential.json", "unordered_numbers" )
     lo = linear_search(unorsered_nums, 9)
     print(lo)
-
+    dna_sequence = read_data("sequential.json", "dna_sequence")
+    fg = pattern_search(dna_sequence, "ATA")
+    print(fg)
 
 if __name__ == '__main__':
     main()
